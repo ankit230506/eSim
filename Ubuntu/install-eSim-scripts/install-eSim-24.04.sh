@@ -137,7 +137,7 @@ function installKicad
     ubuntu_version=$(lsb_release -rs)
 
     # Define KiCad PPAs based on Ubuntu version
-    if [[ "$ubuntu_version" == "24.04" ]]; then
+    if [[ "$ubuntu_version" =~ ^(2[2-9]|[3-9][0-9])\.[0-9]{2}$ ]]; then
         echo "Ubuntu 24.04 detected."
         kicadppa="kicad/kicad-8.0-releases"
 
@@ -163,7 +163,7 @@ function installKicad
         fi
 
     else
-        kicadppa="kicad/kicad-6.0-releases"
+        kicadppa="kicad/kicad-8.0-releases"
     fi
 
     # Check if the PPA is already added
